@@ -18,7 +18,15 @@ import 'font-awesome/css/font-awesome.css'
  */
 import dashboard from '@/module-dashboard/' // 面板
 import base from '@/module-manage/' // 用户管理
-import hmmm from '@/module-hmmm/' // 黑马面面
+import hmmm from '@/module-hmmm/'
+
+// 富文本插件(quill-editor)
+import VueQuillEditor from 'vue-quill-editor'
+import * as Quill from 'quill' // 引入编辑器
+import resizeImage from 'quill-image-resize-module'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css' // 黑马面面
 
 Vue.use(dashboard, store)
 Vue.use(base, store)
@@ -40,6 +48,10 @@ Vue.use(Element, {
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key])
 })
+
+// 富文本插件(quill-editor)
+Quill.register('modules/resizeImage ', resizeImage)
+Vue.use(VueQuillEditor)
 
 Vue.config.productionTip = false
 

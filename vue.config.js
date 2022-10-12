@@ -2,7 +2,7 @@ const path = require('path')
 module.exports = {
   lintOnSave: false,
   devServer: {
-    open: true,
+    open: true
   },
   chainWebpack: config => {
     const svgRule = config.module.rule('svg')
